@@ -1,0 +1,26 @@
+{
+  "name": "api-base",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:TheSunCarl/api-base.git",
+  "license": "MIT",
+  "scripts": {
+    "knex": "knex --knexfile=./api/config/knexfile.js",
+    "migrate": "yarn knex migrate:latest",
+    "rollback": "yarn knex migrate:rollback",
+    "seed": "yarn knex seed:run",
+    "refresh": "yarn rollback && yarn migrate && yarn seed",
+    "dev": "nodemon ./api/server.js"
+  },
+  "dependencies": {
+    "@koa/cors": "^3.3.0",
+    "dotenv": "^16.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^1.0.7",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^10.1.1",
+    "objection": "^3.0.1",
+    "pg": "^8.7.3"
+  }
+}
